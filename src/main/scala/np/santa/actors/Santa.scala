@@ -10,16 +10,20 @@ object Santa {
     Behaviors.setup(context => new Santa(context))
 
   final case class SantaWakeupCall() extends ChristmasShopMessage
+
 }
 
-
-
-class Santa(context: ActorContext[ChristmasShopMessage])  extends AbstractBehavior[ChristmasShopMessage](context) {
+class Santa(context: ActorContext[ChristmasShopMessage]) extends AbstractBehavior[ChristmasShopMessage](context) {
 
   override def onMessage(msg: ChristmasShopMessage): Behavior[ChristmasShopMessage] =
     msg match {
       case SantaWakeupCall() =>
         context.log.info("Santa wakes up. 'Good morning my dear elves!'")
         this
+
+      case _ =>
+        context.log.info("Cannot process message!")
+        this
+
     }
 }

@@ -19,12 +19,13 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.29'
     compile 'org.slf4j:slf4j-simple:1.7.29'
 
-    // Use Scalatest for testing
+    // Use Akka testkit and Scalatest for testing
     testCompile 'junit:junit:4.12'
-    testCompile 'org.scalatest:scalatest_2.12:3.0.8'
-    testCompile 'com.typesafe.akka:akka-testkit_2.12:2.6.0'
+    testCompile 'org.scalatest:scalatest_2.12:3.0.4'
+    testCompile 'com.typesafe.akka:akka-actor-testkit-typed_2.12:2.6.0'
 
     // Need scala-xml at test runtime
     testRuntime 'org.scala-lang.modules:scala-xml_2.12:1.2.0'
 }
+
 
