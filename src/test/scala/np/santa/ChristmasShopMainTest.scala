@@ -8,7 +8,7 @@ import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class MainTest extends FunSuite {
+class ChristmasShopMainTest extends FunSuite {
   test("someLibraryMethod is always true") {
 
   }

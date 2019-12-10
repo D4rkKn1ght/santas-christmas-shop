@@ -2,7 +2,7 @@ apply plugin: 'scala'
 apply plugin: 'application'
 apply plugin: 'idea'
 
-mainClassName = "np.santa.Main"
+mainClassName = "np.santa.ChristmasShopMain"
 
 repositories {
     mavenCentral()
@@ -14,9 +14,10 @@ dependencies {
     compile "org.scala-lang:scala-reflect:2.12.10"
 
     // Akka dependencies
-    //compile 'com.typesafe.akka:akka-actor_2.12:2.6.0'
     compile 'com.typesafe.akka:akka-actor-typed_2.12:2.6.0'
 
+    compile 'org.slf4j:slf4j-api:1.7.29'
+    compile 'org.slf4j:slf4j-simple:1.7.29'
 
     // Use Scalatest for testing
     testCompile 'junit:junit:4.12'
