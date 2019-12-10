@@ -1,22 +1,29 @@
 apply plugin: 'scala'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+mainClassName = "np.santa.Main"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Use Scala 2.11 in our project
-    compile 'org.scala-lang:scala-library:2.11.8'
+    // Use Scala 2.12 in our project
+    compile 'org.scala-lang:scala-library:2.12.10'
+    compile "org.scala-lang:scala-reflect:2.12.10"
 
     // Akka dependencies
-    compile 'com.typesafe.akka:akka-actor_2.11:2.5.26'
+    //compile 'com.typesafe.akka:akka-actor_2.12:2.6.0'
+    compile 'com.typesafe.akka:akka-actor-typed_2.12:2.6.0'
 
 
     // Use Scalatest for testing
     testCompile 'junit:junit:4.12'
-    testCompile 'org.scalatest:scalatest_2.11:3.0.4'
+    testCompile 'org.scalatest:scalatest_2.12:3.0.8'
+    testCompile 'com.typesafe.akka:akka-testkit_2.12:2.6.0'
 
     // Need scala-xml at test runtime
-    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.6'
+    testRuntime 'org.scala-lang.modules:scala-xml_2.12:1.2.0'
 }
 
