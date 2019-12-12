@@ -17,16 +17,14 @@ object ChristmasShopMain extends App {
 object ChristmasShop {
 
   def apply(): Behavior[ChristmasShopMessage] =
-    Behaviors.setup(context => new ChristmasShop(context))
+    Behaviors.setup(context => new ChristmasShop(context, context.spawn(Santa(), "Santa Clause")))
 
   final case class StartChristmasShopMsg() extends ChristmasShopMessage
 
 }
 
 // root actor implementation
-class ChristmasShop(context: ActorContext[ChristmasShopMessage]) extends AbstractBehavior[ChristmasShopMessage](context) {
-
-  val santa: ActorRef[ChristmasShopMessage] = context.spawn(Santa(), "SantaClause")
+class ChristmasShop(context: ActorContext[ChristmasShopMessage], santa: ActorRef[ChristmasShopMessage]) extends AbstractBehavior[ChristmasShopMessage](context) {
 
   override def onMessage(msg: ChristmasShopMessage): Behavior[ChristmasShopMessage] =
     msg match {
@@ -36,7 +34,11 @@ class ChristmasShop(context: ActorContext[ChristmasShopMessage]) extends Abstrac
         context.log.info("The shop staff sends a wakeup message to Santa...")
         santa ! SantaWakeupCall()
 
-        this
+        Behaviors.same
+      case _ =>
+        context.log.info("The ChristmasShop cannot process this message!")
+        Behaviors.same
+
     }
 }
 
