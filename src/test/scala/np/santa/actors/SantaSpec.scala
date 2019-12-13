@@ -14,7 +14,7 @@ class SantaSpec extends ScalaTestWithActorTestKit with WordSpecLike {
 
       santaTestKit.run(Santa.SantaWakeupCall())
 
-      val bernardInbox = santaTestKit.childInbox[ChristmasShopMessage]("Bernards Present Management")
+      val bernardInbox = santaTestKit.childInbox[ChristmasShopMessage]("BernardsPresentManagement")
       bernardInbox.expectMessage(BernardsPresentManagement.GetNiceList(santaTestKit.ref))
     }
 
