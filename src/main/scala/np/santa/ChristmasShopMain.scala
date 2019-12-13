@@ -17,7 +17,7 @@ object ChristmasShopMain extends App {
 object ChristmasShop {
 
   def apply(): Behavior[ChristmasShopMessage] =
-    Behaviors.setup(context => new ChristmasShop(context, context.spawn(Santa(), "Santa Clause")))
+    Behaviors.setup(context => new ChristmasShop(context, context.spawn(Santa(), "SantaClause")))
 
   final case class StartChristmasShopMsg() extends ChristmasShopMessage
 

@@ -7,7 +7,7 @@ import np.santa.actors.Santa.SantaWakeupCall
 
 object Santa {
   def apply(): Behavior[ChristmasShopMessage] =
-    Behaviors.setup(context => new Santa(context, context.spawn(BernardsPresentManagement(), "Bernards Present Management")))
+    Behaviors.setup(context => new Santa(context, context.spawn(BernardsPresentManagement(), "BernardsPresentManagement")))
 
   final case class SantaWakeupCall() extends ChristmasShopMessage
   final case class ProvideNiceList(niceList: List[String]) extends ChristmasShopMessage

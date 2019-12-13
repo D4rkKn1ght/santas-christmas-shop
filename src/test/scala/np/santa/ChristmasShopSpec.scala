@@ -14,7 +14,7 @@ class ChristmasShopSpec extends WordSpecLike {
 
       shopTestKit.run(ChristmasShop.StartChristmasShopMsg())
 
-      val santaInbox = shopTestKit.childInbox[ChristmasShopMessage]("Santa Clause")
+      val santaInbox = shopTestKit.childInbox[ChristmasShopMessage]("SantaClause")
       santaInbox.expectMessage(SantaWakeupCall())
     }
   }
